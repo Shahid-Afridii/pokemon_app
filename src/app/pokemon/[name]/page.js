@@ -1,7 +1,7 @@
 
 import Link from 'next/link';
 import { FaChevronLeft } from 'react-icons/fa'; 
-import axios from 'axios';  // Import Axios
+import axios from 'axios';  
 
 
 export default async function PokemonDetail({ params }) {
