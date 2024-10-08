@@ -1,4 +1,4 @@
-"use client";
+
 import Link from 'next/link';
 import { FaChevronLeft } from 'react-icons/fa';  // Back icon for better UX
 import axios from 'axios';  // Import Axios
