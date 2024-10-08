@@ -1,7 +1,8 @@
-
 import Link from 'next/link';
 import { FaChevronLeft } from 'react-icons/fa'; 
 import axios from 'axios';  
+import PokemonStatsChart from "../../components/PokemonStatsChart"
+
 
 
 export default async function PokemonDetail({ params }) {
@@ -43,7 +44,7 @@ export default async function PokemonDetail({ params }) {
 
           {/* Type Information */}
           <p className="text-lg text-gray-700 mb-4 md:mb-6">
-            <strong className="font-bold">Type : </strong> 
+            <strong className="font-bold">Type: </strong> 
             {pokemon.types.map((type, index) => (
               <span
                 key={type.type.name}
@@ -66,43 +67,45 @@ export default async function PokemonDetail({ params }) {
             </div>
           </div>
 
-          {/* Abilities Section */}
-          <div className="mb-4 md:mb-6">
-            <p className="text-lg text-gray-700 font-medium">Abilities:</p>
-            <p className="text-md text-gray-900">
-              {pokemon.abilities.map((ability, index) => (
-                <span key={ability.ability.name}>
-                  {ability.ability.name}
-                  {index < pokemon.abilities.length - 1 ? ', ' : ''}
-                </span>
-              ))}
-            </p>
-          </div>
+  
+{/* Abilities Section */}
+<div className="mb-4 md:mb-6">
+  <p className="text-lg text-gray-700 font-medium mb-4">Abilities:</p>
+  <div className="grid grid-cols-2 gap-4">
+    {pokemon.abilities.map((ability) => (
+      <div
+        key={ability.ability.name}
+        className="p-4 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 transform hover:-translate-y-1"
+      >
+        <p className="text-gray-900 font-semibold text-lg">{ability.ability.name}</p>
+      </div>
+    ))}
+  </div>
+</div>
 
-          {/* Stats Section */}
+
+
+          {/* Chart Section for Stats */}
           <div className="mb-4 md:mb-6">
-            <p className="text-lg text-gray-700 font-medium">Base Stats:</p>
-            <div className="grid grid-cols-2 gap-4 text-gray-900">
-              {pokemon.stats.map((stat) => (
-                <p key={stat.stat.name} className="text-md capitalize">
-                  <strong>{stat.stat.name}:</strong> {stat.base_stat}
-                </p>
-              ))}
-            </div>
+            {/* Pass the stats data and name to the client-side chart component */}
+            <PokemonStatsChart pokemonStats={pokemon.stats} />
           </div>
 
           {/* Moves Section */}
-          <div>
-            <p className="text-lg text-gray-700 font-medium">Top Moves:</p>
-            <p className="text-md text-gray-900">
-              {pokemon.moves.slice(0, 6).map((move, index) => (
-                <span key={move.move.name}>
-                  {move.move.name}
-                  {index < pokemon.moves.slice(0, 6).length - 1 ? ', ' : ''}
-                </span>
-              ))}
-            </p>
-          </div>
+          <div className="mt-6">
+  <p className="text-lg text-gray-700 font-medium mb-2">Top Moves:</p>
+  <div className="flex flex-wrap gap-2">
+    {pokemon.moves.slice(0, 6).map((move) => (
+      <span
+        key={move.move.name}
+        className="inline-block bg-blue-100 text-blue-800 font-semibold px-4 py-2 rounded-full hover:bg-blue-200 transition-all duration-300 shadow-md"
+      >
+        {move.move.name}
+      </span>
+    ))}
+  </div>
+</div>
+
         </div>
       </div>
     </div>
