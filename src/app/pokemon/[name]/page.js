@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { FaChevronLeft } from 'react-icons/fa';  // Back icon for better UX
 import axios from 'axios';  // Import Axios
 
-// This is a server-side component in the app directory
+
 export default async function PokemonDetail({ params }) {
   const { name } = params;
 

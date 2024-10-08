@@ -1,9 +1,9 @@
 "use client";
 import Link from 'next/link';
-import { AiOutlineStar } from 'react-icons/ai';  // Elegant star icon
-import { FiArrowRight } from 'react-icons/fi';  // Arrow icon for the link
+import { AiOutlineStar } from 'react-icons/ai';  
+import { FiArrowRight } from 'react-icons/fi';  
 import { useState } from 'react';
-import { motion } from 'framer-motion';  // Framer Motion for animations
+import { motion } from 'framer-motion';  
 
 export default function PokemonCard({ pokemon, index }) {
   const [imageSrc, setImageSrc] = useState(
@@ -13,13 +13,13 @@ export default function PokemonCard({ pokemon, index }) {
   return (
     <motion.div
       className="bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
-      whileHover={{ scale: 1.05 }}  // Scale slightly on hover
-      initial={{ opacity: 0, y: 20 }}  // Starting position and opacity
-      animate={{ opacity: 1, y: 0 }}  // Animate into view
+      whileHover={{ scale: 1.05 }}  
+      initial={{ opacity: 0, y: 20 }}  
+      animate={{ opacity: 1, y: 0 }}  
       transition={{ 
-        duration: 0.5,  // Each card animation lasts 0.5 seconds
+        duration: 0.5,  
         ease: 'easeInOut', 
-        delay: index * 0.5 // Delay based on index to stagger cards
+        delay: index * 0.5 
       }}
     >
       {/* Pokémon Image */}
@@ -27,7 +27,7 @@ export default function PokemonCard({ pokemon, index }) {
         src={imageSrc}
         alt={pokemon.name}
         className="w-32 h-32 mb-4 flex justify-center object-cover"
-        onError={() => setImageSrc('https://via.placeholder.com/96')} // Fallback image
+        onError={() => setImageSrc('https://via.placeholder.com/96')} 
       />
       {/* Pokémon Name */}
       <h3 className="text-xl font-semibold mb-2 flex items-center text-gray-700">

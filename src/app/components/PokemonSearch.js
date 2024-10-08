@@ -1,15 +1,15 @@
 "use client";
 import { useState } from 'react';
-import Card from './Card'; // Assuming you have a Card component
-import { motion } from 'framer-motion'; // Added for animations
+import Card from './Card'; 
+import { motion } from 'framer-motion'; 
 
-// Client-side component for search and filtering
+
 export default function PokemonSearch({ resultsWithTypes, types }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedType, setSelectedType] = useState('');
   const [filteredPokemons, setFilteredPokemons] = useState(resultsWithTypes);
 
-  // Filter Pokémon when the search term or type changes
+
   const handleSearch = () => {
     const filtered = resultsWithTypes.filter((pokemon) => {
       const matchesName = pokemon.name.toLowerCase().includes(searchTerm.toLowerCase());
