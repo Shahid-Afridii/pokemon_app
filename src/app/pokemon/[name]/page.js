@@ -56,14 +56,14 @@ export default async function PokemonDetail({ params }) {
           </p>
 
           {/* Height, Weight, and Other Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
+          <div className="grid grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
             <div className="bg-gray-100 p-4 rounded-lg shadow-md">
               <p className="text-lg text-gray-600 font-medium">Height</p>
-              <p className="text-2xl font-bold text-gray-900">{pokemon.height / 10} m</p>
+              <p className="text-lg md:text-2xl font-bold text-gray-900">{pokemon.height / 10} m</p>
             </div>
             <div className="bg-gray-100 p-4 rounded-lg shadow-md">
               <p className="text-lg text-gray-600 font-medium">Weight</p>
-              <p className="text-2xl font-bold text-gray-900">{pokemon.weight / 10} kg</p>
+              <p className="text-lg md:text-2xl font-bold text-gray-900">{pokemon.weight / 10} kg</p>
             </div>
           </div>
 
