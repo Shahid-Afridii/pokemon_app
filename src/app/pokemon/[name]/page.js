@@ -1,6 +1,6 @@
 
 import Link from 'next/link';
-import { FaChevronLeft } from 'react-icons/fa';  // Back icon for better UX
+import { FaChevronLeft } from 'react-icons/fa'; 
 import axios from 'axios';  // Import Axios
 
 
